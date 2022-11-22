@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 // import { nanoid } from 'nanoid';
 
-class ContactsForm extends Component {
-    state = {
-        name: '',
-    }
+export class ContactsForm extends Component {
+  state = {
+    name: '',
+  };
     
   onChange = (e) => { 
       console.log(e.target.name)
@@ -19,8 +19,8 @@ class ContactsForm extends Component {
     render() {
         return (
         <ContactsForm>
-          <span>Name</span>
-          <label>
+            <label>
+            <span>Name</span>
             <input
             type="text"
             name="name"
@@ -36,8 +36,10 @@ class ContactsForm extends Component {
     }
 }
 
-export default ContactsForm;
 
-ContactsForm.propTypes = {
-    name: PropTypes.string.isRequired,
-}
+// ContactsForm.propTypes = {
+//      contacts: PropTypes.arrayOf(PropTypes.shape({
+//         name: PropTypes.string.isRequired,
+//         id: PropTypes.string.isRequired,
+//     })).isRequired,
+// }

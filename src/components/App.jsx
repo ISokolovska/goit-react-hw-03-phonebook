@@ -1,20 +1,12 @@
 import React from "react";
-import ContactsForm from "./ContactsForm/ContactsForm";
-import ContactsList from "./ContactsList/ContactsList";
+import { ContactsForm } from "./ContactsForm/ContactsForm";
 
 export class App extends React.Component {
   state = {
-        contacts: [],
-        name: ''
-  }
-
-  onAddContact = contact => { 
-    console.log(contact);
-
-  }
-  
-   render() { 
-    return (
+    contacts: [],
+    name: ''
+  };
+  render () {return (
     <div
       style={{
         height: '100vh',
@@ -24,12 +16,12 @@ export class App extends React.Component {
         fontSize: 40,
         color: '#010101'
       }}
-      >
-        <h1>Phonebook</h1>
-        <ContactsForm />
-        <h2>Contacts</h2>
-        <ContactsList />
+    >
+      <h1>Phonebook</h1>
+     
+        
+      <h2>Contacts</h2>
     </div>
-  );
-  } 
+  );}
+  
 };
