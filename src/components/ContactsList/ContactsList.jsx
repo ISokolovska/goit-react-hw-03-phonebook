@@ -1,20 +1,27 @@
-// import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 // import { nanoid } from 'nanoid';
 
 export const ContactsList = ({ contacts }) => {
   return (
-    <ContactsList className="contacts-list">
+    <ul className="contacts-list">
       {contacts.map(contact => {
         return (
-          <li key={contact.id}><span>{contact.name}</span></li>);
+          <li key={contact.id}>
+            <span>
+              {contact.name}: {contact.number}
+            </span>
+          </li>
+        );
       })}
-    </ContactsList>
+    </ul>
   );
 };
 
-// ContactsList.propTypes = {
-//      contacts: PropTypes.arrayOf(PropTypes.shape({
-//         name: PropTypes.string.isRequired,
-//         id: PropTypes.number.isRequired,
-//     })).isRequired,
-// }
+ContactsList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ),
+};
