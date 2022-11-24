@@ -18,10 +18,11 @@ export class App extends React.Component {
 
   addContact = contact => {
     if (
-      this.state.contacts.filter(element => element.name === contact.name)
-        .length > 0
+      this.state.contacts.filter(
+        element => element.name.toLowerCase() === contact.name.toLowerCase()
+      ).length > 0
     ) {
-      return Notiflix.Notify.warning(`${contact.name} is already there`);
+      return Notiflix.Notify.warning(`${contact.name} is already in contacts`);
     }
     this.setState(prevState => {
       const arr = [...prevState.contacts, contact];
@@ -43,7 +44,6 @@ export class App extends React.Component {
   };
 
   deleteContact = id => {
-    console.log(id);
     this.setState(prevState => {
       const deletedContacts = prevState.contacts.filter(
         contact => contact.id !== id
@@ -54,7 +54,6 @@ export class App extends React.Component {
 
   render() {
     const filteredContacts = this.filterContacts();
-    console.log(filteredContacts);
     return (
       <div
         style={{
