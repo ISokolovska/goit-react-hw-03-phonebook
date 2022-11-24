@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import Notiflix from 'notiflix';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { AddContactsFormContainer, AddContactsInput, Button } from './Styled';
+
 export class ContactsForm extends Component {
   state = {
     name: '',
@@ -31,9 +32,9 @@ export class ContactsForm extends Component {
   nameInputId = nanoid();
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <AddContactsFormContainer onSubmit={this.handleSubmit}>
         <label htmlFor={this.nameInputId}>Name</label>
-        <input
+        <AddContactsInput
           type="text"
           name="name"
           id={this.nameInputId}
@@ -45,7 +46,7 @@ export class ContactsForm extends Component {
         />
 
         <label htmlFor="number">Number</label>
-        <input
+        <AddContactsInput
           type="tel"
           name="number"
           id="number"
@@ -55,8 +56,8 @@ export class ContactsForm extends Component {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <button type="submit">Add contact</button>
-      </form>
+        <Button type="submit">Add contact</Button>
+      </AddContactsFormContainer>
     );
   }
 }

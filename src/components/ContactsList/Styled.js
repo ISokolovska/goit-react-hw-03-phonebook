@@ -1,1 +1,5 @@
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+export const Contact = styled.span`
+  margin-right: 30px;
+`;

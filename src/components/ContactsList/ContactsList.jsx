@@ -1,15 +1,19 @@
 import PropTypes from 'prop-types';
-// import { nanoid } from 'nanoid';
+import { Button } from '../ContactsForm/Styled';
+import { Contact } from './Styled';
 
-export const ContactsList = ({ contacts }) => {
+export const ContactsList = ({ contacts, deleteContact }) => {
   return (
     <ul className="contacts-list">
       {contacts.map(contact => {
         return (
           <li key={contact.id}>
-            <span>
+            <Contact>
               {contact.name}: {contact.number}
-            </span>
+            </Contact>
+            <Button type="submit" onClick={() => deleteContact(contact.id)}>
+              Delete
+            </Button>
           </li>
         );
       })}
@@ -24,4 +28,5 @@ ContactsList.propTypes = {
       name: PropTypes.string.isRequired,
     })
   ),
+  deleteContact: PropTypes.func,
 };

@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import { ContactsForm } from './ContactsForm/ContactsForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
+// import { Button } from './ContactsForm/Styled';
 
 export class App extends React.Component {
   state = {
@@ -41,6 +42,16 @@ export class App extends React.Component {
     return filteredContacts;
   };
 
+  deleteContact = id => {
+    console.log(id);
+    this.setState(prevState => {
+      const deletedContacts = prevState.contacts.filter(
+        contact => contact.id !== id
+      );
+      return { contacts: deletedContacts };
+    });
+  };
+
   render() {
     const filteredContacts = this.filterContacts();
     console.log(filteredContacts);
@@ -49,6 +60,7 @@ export class App extends React.Component {
         style={{
           height: '100vh',
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           fontSize: 40,
@@ -59,7 +71,10 @@ export class App extends React.Component {
         <ContactsForm addContact={this.addContact}></ContactsForm>
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} setFilter={this.setFilter} />
-        <ContactsList contacts={filteredContacts}></ContactsList>
+        <ContactsList
+          contacts={filteredContacts}
+          deleteContact={this.deleteContact}
+        ></ContactsList>
       </div>
     );
   }
