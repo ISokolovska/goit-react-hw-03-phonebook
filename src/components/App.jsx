@@ -3,8 +3,6 @@ import Notiflix from 'notiflix';
 import { ContactsForm } from './ContactsForm/ContactsForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-// import { Button } from './ContactsForm/Styled';
-
 export class App extends React.Component {
   state = {
     contacts: [
